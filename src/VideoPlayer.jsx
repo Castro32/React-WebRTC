@@ -1,14 +1,21 @@
     
 import { Grid, Box, Heading } from "@chakra-ui/react"
 import { SocketContext } from "./Context"
-import { useContext } from "react"
+import { useEffect,useContext } from "react"
 
 const VideoPlayer = () => {
     const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext)
+    useEffect(() => {
+        if (myVideo && stream) {
+            myVideo.srcObject = stream;
+        } else {
+            console.error('Video element or stream not found.');
+        }
+    }, [myVideo, stream]);
 
 return (
     <Grid justifyContent="center" templateColumns='repeat(2, 1fr)' mt="12">
-            {/* my video */}
+           
         {
             stream && (
                 <Box>
@@ -21,7 +28,7 @@ return (
                 </Box>
             )
         }
-              {/* user's video */}
+             
         {
             callAccepted && !callEnded && (
                 <Box>
