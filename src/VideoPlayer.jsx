@@ -14,16 +14,16 @@ const VideoPlayer = () => {
     }, [myVideo, stream]);
 
 return (
-    <Grid justifyContent="center" templateColumns='repeat(2, 1fr)' mt="12">
+    <Grid justifyContent="center" templateColumns='repeat(2, 1fr)' mt="6">
            
         {
             stream && (
                 <Box>
                     <Grid colSpan={1}>
-                        <Heading as="h5">
+                        <Heading as="h3">
                             {name || 'Name'}
                         </Heading>
-                        <video playsInline muted ref={myVideo} autoPlay width="600" />
+                        <video playsInline muted ref={myVideo} autoPlay width="500" />
                     </Grid>
                 </Box>
             )
@@ -33,10 +33,10 @@ return (
             callAccepted && !callEnded && (
                 <Box>
                     <Grid colSpan={1}>
-                        <Heading as="h5">
+                        <Heading as="h2">
                             {call.name || 'Name'}
                         </Heading>
-                        <video playsInline ref={userVideo} autoPlay width="600" />
+                        <video playsInline ref={userVideo} autoPlay width="500" />
                     </Grid>
                 </Box>
             )

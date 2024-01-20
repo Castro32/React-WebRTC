@@ -15,12 +15,12 @@ const Options = () => {
 
 
 return (
-    <Container maxW="1200px" m="35px 0" p="0">
+    <Container maxW="800px" m="10px 0" p="0">
         <Box p="10px" border="2px" borderColor="black" borderStyle="solid">
             <FormControl display="flex" flexDirection="column" noValidate aria-autocomplete="none">
                 <Grid templateColumns='repeat(2, 1fr)' mt="12">
                     <Grid colSpan={1} p="6">
-                        <Heading as="h6"> Account Info </Heading>
+                        <Heading as="h4"> Account Info </Heading>
                         <FormLabel>Username</FormLabel>
                         <Input type='text' value={name} onChange={(e) => setName(e.target.value)} width="100%" />
                         <CopyToClipboard text={me} onCopy={handleCopyId} mt="20">
