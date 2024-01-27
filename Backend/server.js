@@ -4,7 +4,7 @@ const {Server} = require("socket.io")
 
 const app = express();
 const Server = http.createServer(app);
-const io =new Server(Server,{
+const io =new Server(httpServer,{
     cors:{
         origin: "http://localhost:8000",
         methods:["GET","POST"]
@@ -24,7 +24,7 @@ app.get('/',(req, res)=>{
 io.on("connection",(socket)=>{
     socket.emit("me",socket.id);
 
-    socket.on("disconnet",()=>{
+    socket.on("disconnect",()=>{
         socket.broadcast.emit("callEnded");
     });
 

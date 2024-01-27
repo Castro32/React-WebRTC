@@ -17,8 +17,7 @@ function App() {
     try {
       const response = await fetch('http://localhost:3000/api/data');
       const data = await response.json();
-      console.log(data.message); // Output: Hello from the backend!
-      // You can use the data received from the backend here
+      console.log(data.message); 
     } catch (error) {
       console.error('Error:', error);
     }
